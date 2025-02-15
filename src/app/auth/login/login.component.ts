@@ -2,13 +2,14 @@ import { ChangeDetectionStrategy, Component, inject, signal, WritableSignal } fr
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
 import { AuthService } from '../service/auth.service';
 import { ILoginForm } from '../interface/loginForm.interface';
-import { IRequestError } from '../../request/iRequestError.interface';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
+import { NotifierService } from '../../notifier/notifier.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent {
   private readonly fb = inject(FormBuilder)
   private readonly authService = inject(AuthService)
   private readonly router = inject(Router)
+  private readonly notifierService = inject(NotifierService)
   errorEmailMessage = signal('')
   errorPwdMessage = signal('')
   hidePwd = signal(true);
@@ -47,8 +49,8 @@ export class LoginComponent {
           this.authService.setToken(token)
           this.loading.set(false)
           this.router.navigate(["/"])
-        }, error: (err: IRequestError) => {
-          console.log({ err })
+        }, error: (err: HttpErrorResponse) => {
+          this.notifierService.showWarn(err.status == 500 ? "Erro interno. Tente novamente mais tarde" : "Usuário ou senha errados")
           this.loading.set(false)
         },
       })
