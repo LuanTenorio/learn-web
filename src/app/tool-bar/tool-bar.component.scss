@@ -47,7 +47,13 @@ mat-icon {
     transition: $animation-tudation $transition-type;
     border-radius: 8px;
 
+    // background-color: rgb(255, 255, 255);
+    // background-color: rgb(247, 247, 247);
+
+    background-color: #e7f8f8 !important;
+
     &.show {
+        background-color: rgb(247, 247, 247) !important;
         border-radius: 100%;
         width: $radius;
         height: $radius;
