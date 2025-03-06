@@ -1,0 +1,120 @@
+@use "../../styles.scss";
+
+$iconSize: 28px;
+$radius: 45px;
+$distance-from-each-item: 15px;
+$animation-tudation: 1s;
+$transition-type: cubic-bezier(0.45, -0.13, 0.21, 1.09);
+$distance: $radius + $distance-from-each-item;
+
+mat-icon {
+    font-size: $iconSize;
+    width: $iconSize;
+    height: $iconSize;
+    color: styles.$icon-color;
+}
+
+.item {
+    background-color: rgb(255, 255, 255);
+    box-shadow: -2px 2px 5px 0px #798686;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    width: $radius;
+    height: $radius;
+    border-radius: 100%;
+    border: 1px solid #b8b8b8;
+
+    &:hover {
+        border-radius: 8px;
+        transition: .4s ease;
+        background-color: rgb(247, 247, 247);
+        transform: translateY(-50%) scale(1.03);
+        box-shadow: 0px 4px 5px 0px #798686;
+    }
+}
+
+.hamburger {
+    @extend .item;
+    z-index: 99;
+
+    position: fixed;
+    top: 50vh;
+    left: 16px;
+    width: $radius + 5px;
+    height: $radius + 5px;
+    transition: $animation-tudation $transition-type;
+    border-radius: 8px;
+
+    &.show {
+        border-radius: 100%;
+        width: $radius;
+        height: $radius;
+        left: 18px;
+    }
+}
+
+.nav-bar-el {
+    @extend .item;
+    position: fixed;
+    top: 50vh;
+    left: 18px;
+    transition: $animation-tudation $transition-type;
+
+    $level: 1;
+
+    @for $i from 1 through 5 {
+        $direction: 1;
+
+        @if ($i % 2==0) {
+            $direction: -1;
+        }
+
+        @if ($i % 2==1 and $i >1) {
+            $level: calc($level + 1)
+        }
+
+
+        &.show:nth-of-type(#{$i}) {
+            transition-timing-function: ease;
+            top: calc(50vh + calc($distance * $level * $direction));
+            animation: fadeIn $animation-tudation $transition-type;
+        }
+    }
+
+    &.hide {
+        animation: fadeOut $animation-tudation $transition-type forwards;
+    }
+
+    &.selected {
+        border-radius: 8px;
+        background-color: #e7f8f8;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.6;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 0;
+        transform: 1;
+    }
+}
