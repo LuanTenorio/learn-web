@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   login(data: { email: string, password: string }) {
-    return this.http.post<{ token: string }>(`${environment.apiUrl}${this.path}`, data)
+    return this.http.post<{ access_token: string }>(`${environment.apiUrl}${this.path}`, data)
   }
 
   setToken(token: string) {

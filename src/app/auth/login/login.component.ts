@@ -45,8 +45,8 @@ export class LoginComponent {
       this.loading.set(true)
       const data = this.form.getRawValue()
       this.authService.login(data).subscribe({
-        next: ({ token }) => {
-          this.authService.setToken(token)
+        next: ({ access_token }) => {
+          this.authService.setToken(access_token)
           this.loading.set(false)
           this.router.navigate(["/"])
         }, error: (err: HttpErrorResponse) => {
