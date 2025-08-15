@@ -1,0 +1,10 @@
+<div class="pagination-panel">
+    <div class="filter">
+        
+    </div>
+    <div class="control">
+        <span>Página {{ pagination().page }} de {{ getTotalPages() }}</span>
+        <button (click)="previousPage()" [disabled]="pagination().page <= 1"><i class="fa-solid fa-chevron-left"></i></button>
+        <button (click)="nextPage()" [disabled]="pagination().page >= getTotalPages()"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+</div>
