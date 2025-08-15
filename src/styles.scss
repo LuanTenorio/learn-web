@@ -1,13 +1,13 @@
 @use "tailwindcss";
 
-html,
-body {
-    height: 100%;
+html, body {
+	min-height: 100%;
 }
 
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: linear-gradient(45deg, #672d1e, #3b0837);
 }
 
-$icon-color: #248d8d;
+$icon-color: #ce3762;

@@ -1,1 +1,18 @@
-<p>subject works!</p>
+<section class="">
+    <app-pagination [pagination]="pagination" (change)="onPageChange($event)"></app-pagination>
+    <div class="grid-container">
+    @for (subject of subjects; track $index) {
+        <div class="card">
+            <div class="flex flex-row justify-between items-center">
+                <div class="title h-full">{{ subject.name }}</div>
+                <div class="icon"><i class="fa-thin fa-book-open"></i></div>
+            </div>
+            <div class="content">
+                <p class="info">Tempo total {{ subject.totalTime }}hs</p>
+                <p class="info">0 conteúdos</p>
+                <p class="info">Iniciado em {{ subject.createdAt | date: 'dd/MM/yyyy'}}</p>
+            </div>
+        </div>
+    }
+    </div>
+</section>

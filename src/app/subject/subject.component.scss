@@ -1,0 +1,87 @@
+@import url('https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css');
+  
+body {
+  background: #d0dbe1;
+  padding: 2rem;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+}
+
+.space{
+  height: 82px;
+  display: block;
+}
+
+.grid-container {
+  width: min(75rem, 100%);
+  height: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  gap: 2rem;
+}
+
+.card {
+  --grad: #ff5f37, #6d0d66;
+  cursor: pointer;
+  padding: 1.5rem;
+  background-image: linear-gradient(to bottom left, #e5f9f8, #f2f6f9);
+  border-radius: 1.5rem;
+  position: relative;
+  gap: 1.5rem;
+  transition: .2s;
+  font-family: system-ui, sans-serif;
+  color: rgb(164, 0, 197);
+  box-shadow: inset -2px 2px 8px #00000040, -2px 2px 8px rgb(207 207 207 / 30%);
+
+  &:hover{
+    transform: scale(1.02);
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    grid-area: title;
+    font-weight: 500;
+    word-break: break-all;
+    background: -webkit-linear-gradient(var(--grad));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .info {
+    color: #ce3762;
+  }
+
+  .icon {
+    grid-area: icon;
+    font-size: 2.5rem;
+    
+    > i {
+      color: transparent;
+      background: linear-gradient(to right, var(--grad));
+      background-clip: text;
+    }
+  }
+
+  .content {
+    grid-area: content;
+    & > *:first-child { margin-top: 0rem}
+    & > *:last-child { margin-bottom: 0rem}
+  }
+
+  &::after {
+    content: "";
+    width: 80%;
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background-image: linear-gradient(90deg, var(--grad));
+  }
+}
