@@ -1,13 +1,15 @@
-<div title="Menu" class="cursor-pointer hamburger" [class]="{'show':barIsOpened()}" (click)="changeStatusBar()">
-    <mat-icon>menu</mat-icon>
+<div class="tool-bar">
+    <a title="Revisão" [routerLink]="['/reviews']" routerLinkActive="selected" class="nav-bar-el"
+        [class]="{'show':barIsOpened(), 'hide': !barIsOpened()}"><mat-icon>replay</mat-icon></a>
+    <a title="lista de tarefas" [routerLink]="['/todos']" routerLinkActive="selected" class="nav-bar-el"
+        [class]="{'show':barIsOpened(), 'hide': !barIsOpened()}"><mat-icon>check_box</mat-icon></a>
+    <a title="timeline" [routerLink]="['/timeline']" routerLinkActive="selected" class="nav-bar-el"
+        [class]="{'show':barIsOpened(), 'hide': !barIsOpened()}"><mat-icon>timeline</mat-icon></a>
+    <a title="Matérias" [routerLink]="['/subjects']" routerLinkActive="selected" class="nav-bar-el"
+        [class]="{'show':barIsOpened(), 'hide': !barIsOpened()}"><mat-icon>collections_bookmark</mat-icon></a>
+    <a title="Conta" [routerLink]="['/account']" routerLinkActive="selected" class="nav-bar-el"
+        [class]="{'show':barIsOpened(), 'hide': !barIsOpened()}"><mat-icon>supervised_user_circle</mat-icon></a>
+    <div title="Menu" class="cursor-pointer hamburger" [class]="{'show':barIsOpened()}" (click)="changeStatusBar()">
+        <mat-icon>menu</mat-icon>
+    </div>
 </div>
-<a title="Revisão" [routerLink]="['/reviews']" routerLinkActive="selected" class="nav-bar-el"
-    [class]="{'show':barIsOpened(), 'hide': !barIsOpened()}"><mat-icon>replay</mat-icon></a>
-<a title="lista de tarefas" [routerLink]="['/todos']" routerLinkActive="selected" class="nav-bar-el"
-    [class]="{'show':barIsOpened(), 'hide': !barIsOpened()}"><mat-icon>check_box</mat-icon></a>
-<a title="timeline" [routerLink]="['/timeline']" routerLinkActive="selected" class="nav-bar-el"
-    [class]="{'show':barIsOpened(), 'hide': !barIsOpened()}"><mat-icon>timeline</mat-icon></a>
-<a title="Matérias" [routerLink]="['/subjects']" routerLinkActive="selected" class="nav-bar-el"
-    [class]="{'show':barIsOpened(), 'hide': !barIsOpened()}"><mat-icon>collections_bookmark</mat-icon></a>
-<a title="Conta" [routerLink]="['/account']" routerLinkActive="selected" class="nav-bar-el"
-    [class]="{'show':barIsOpened(), 'hide': !barIsOpened()}"><mat-icon>supervised_user_circle</mat-icon></a>

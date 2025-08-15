@@ -15,6 +15,7 @@ mat-icon {
 }
 
 .item {
+    z-index: 998;
     background-color: rgb(255, 255, 255);
     box-shadow: -2px 2px 5px 0px #798686;
     display: flex;
@@ -37,7 +38,7 @@ mat-icon {
 
 .hamburger {
     @extend .item;
-    z-index: 99;
+    z-index: 999;
 
     position: fixed;
     top: 50vh;
@@ -50,7 +51,7 @@ mat-icon {
     // background-color: rgb(255, 255, 255);
     // background-color: rgb(247, 247, 247);
 
-    background-color: #e7f8f8 !important;
+    background-color: #f3d2db !important;
 
     &.show {
         background-color: rgb(247, 247, 247) !important;
@@ -95,7 +96,7 @@ mat-icon {
 
     &.selected {
         border-radius: 8px;
-        background-color: #e7f8f8;
+        background-color: #f3d2db;
     }
 }
 
