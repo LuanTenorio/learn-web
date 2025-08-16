@@ -2,7 +2,7 @@
     <app-pagination [pagination]="pagination" (change)="onPageChange($event)"></app-pagination>
     <div class="grid-container">
     @for (subject of subjects; track $index) {
-        <div class="card">
+        <div class="card" (click)="selectSubject(subject.id)">
             <div class="flex flex-row justify-between items-center">
                 <div class="title h-full">{{ subject.name }}</div>
                 <div class="icon"><i class="fa-thin fa-book-open"></i></div>

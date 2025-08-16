@@ -5,6 +5,7 @@ import { DatePipe } from '@angular/common';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { IPagination } from '../pagination/interface/IPagination';
 import { PaginationComponent } from '../pagination/pagination.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subject',
@@ -17,7 +18,10 @@ export class SubjectComponent implements OnInit {
   subjects: ISubject[] = []
   pagination: IPagination<ISubject>
 
-  constructor(private readonly subjectService: SubjectService) {
+  constructor(
+    private readonly subjectService: SubjectService,
+    private readonly router: Router
+  ) {
     this.pagination = {
       data: this.subjects,
       total: 0,
@@ -39,6 +43,10 @@ export class SubjectComponent implements OnInit {
       this.subjects = pagination.data;
       this.pagination = pagination;
     });
+  }
+
+  selectSubject(id: number) {
+    this.router.navigate(['/subjects', id, 'learn']);
   }
 
 }
